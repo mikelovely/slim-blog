@@ -4,10 +4,14 @@ $app->get('/', [
     'App\Controllers\HomeController', 'index'
 ])->setName('home');
 
-$app->get('/articles/{article}', [
+$app->get('/articles', [
+    'App\Controllers\ArticlesController', 'index',
+])->setName('articles.index');
+
+$app->get('/articles/{slug}', [
     'App\Controllers\ArticlesController', 'show',
 ])->setName('articles.show');
 
-// $app->get('/articles/{tag}', [
-//     'App\Controllers\ArticlesController', 'tagged',
-// ])->setName('articles.tagged');
+$app->get('/articles/tagged/{tagged}', [
+    'App\Controllers\TagsController', 'index',
+])->setName('tags.index');
