@@ -1,9 +1,38 @@
 {% extends 'templates/app.twig' %}
 
 {% block content %}
-    {% for article in articles %}
-        <div class="row" style="border:1px solid green">
-            <div class="col-md-8 col-md-offset-2" style="border:1px solid red">{{ article.title }}</div>
+    <div class="tags">
+        <div class="row">
+            <div class="twelve columns">
+                <div class="tagged__title">
+                    <h2>Tagged in: {{ tag.name }}</h2>
+                </div>
+            </div>
         </div>
-    {% endfor %}
+    </div>
+    <div class="articles">
+        <div class="row">
+            <div class="twelve columns">
+                {% for article in articles %}
+                    <h3 class="article__title">
+                        <a href="{{ path_for('articles.show', { slug: article.slug }) }}">
+                            {{ article.title }}
+                        </a>
+                    </h3>
+                    <div class="article__details">
+                        <span class="author">
+                            <i class="fa fa-user"></i> {{ article.author.fullName() }}
+                        </span>
+                        <span class="date">
+                            <i class="fa fa-calendar"></i> {{ article.created_at.diffForHumans() }}
+                        <span>
+                    </div>
+
+                    <div class="article__teaser">
+                        <p>{{ article.teaser }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 {% endblock %}

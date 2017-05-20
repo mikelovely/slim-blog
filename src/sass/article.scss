@@ -1,0 +1,45 @@
+.articles {
+    .row {
+        margin: 4%;
+        background-color: #FFFFFF;
+        padding: 4%;
+        border: 1px solid #DADADA;
+
+        .article__title {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #000000;
+
+            a {
+                text-decoration: none;
+                color: #000000;
+            }
+            a:hover {
+                color: $link-color;
+            }
+        }
+
+        .article__details {
+            padding-bottom: 5%;
+            .date {
+                padding-left: 10px;
+            }
+        }
+
+        .article__body {
+            code {
+                overflow: scroll;
+            }
+
+            a {
+                color: $link-color;
+                text-decoration: none;
+            }
+        }
+
+        .article__teaser {
+            code {
+            }
+        }
+    }
+}

@@ -1,27 +1,35 @@
 {% extends 'templates/app.twig' %}
 
 {% block content %}
-    <div class="home">
-        <div class="articles">
-            <div class="row">
-                <div class="twelve columns">
-                    <h3 class="h1 title">{{ article.title }}</h3>
-                    <div class="details">
-                        <span class="author">
-                            <i class="fa fa-user"></i> {{ article.author.fullName() }}
-                        </span>
-                        <span class="date">
-                            <i class="fa fa-calendar"></i> {{ article.created_at.diffForHumans() }}
-                        <span>
-                    </div>
+    <div class="articles">
+        <div class="row">
+            <div class="twelve columns">
+
+                <h3 class="article__title">{{ article.title }}</h3>
+
+                <div class="article__details">
+                    <span class="author">
+                        <i class="fa fa-user"></i> {{ article.author.fullName() }}
+                    </span>
+                    <span class="date">
+                        <i class="fa fa-calendar"></i> {{ article.created_at.diffForHumans() }}
+                    <span>
+                </div>
+
+                <div class="article__body">
                     {% markdown %}
                         {{ article.body|markdown }}
                     {% endmarkdown %}
-
-                    {% for tag in article.tags %}
-                        <a href="{{ path_for('tags.index', { tagged: tag.slug }) }}">{{ tag.name }}</a>
-                    {% endfor %}
                 </div>
+
+                {% for tag in article.tags %}
+                    <a class="tag" href="{{ path_for('tags.index', { tagged: tag.slug }) }}">{{ tag.name }}</a>
+                    <a class="tag" href="{{ path_for('tags.index', { tagged: tag.slug }) }}">{{ tag.name }}</a>
+                    <a class="tag" href="{{ path_for('tags.index', { tagged: tag.slug }) }}">{{ tag.name }}</a>
+                    <a class="tag" href="{{ path_for('tags.index', { tagged: tag.slug }) }}">{{ tag.name }}</a>
+                    <a class="tag" href="{{ path_for('tags.index', { tagged: tag.slug }) }}">{{ tag.name }}</a>
+                    <a class="tag" href="{{ path_for('tags.index', { tagged: tag.slug }) }}">{{ tag.name }}</a>
+                {% endfor %}
             </div>
         </div>
     </div>

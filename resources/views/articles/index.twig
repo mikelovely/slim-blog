@@ -1,29 +1,31 @@
 {% extends 'templates/app.twig' %}
 
 {% block content %}
-    <div class="home">
-        <div class="articles">
-            {% for article in articles %}
-                <div class="row">
-                    <div class="twelve columns">
-                        <h3 class="h1 title">
-                            <a href="{{ path_for('articles.show', { slug: article.slug }) }}">
-                                {{ article.title }}
-                            </a>
-                        </h3>
-                        <div class="details">
-                            <span class="author">
-                                <i class="fa fa-user"></i> {{ article.author.fullName() }}
-                            </span>
-                            <span class="date">
-                                <i class="fa fa-calendar"></i> {{ article.created_at.diffForHumans() }}
-                            <span>
-                        </div>
+    <div class="articles">
+        {% for article in articles %}
+            <div class="row">
+                <div class="twelve columns">
+                    <h3 class="article__title">
+                        <a href="{{ path_for('articles.show', { slug: article.slug }) }}">
+                            {{ article.title }}
+                        </a>
+                    </h3>
+
+                    <div class="article__details">
+                        <span class="author">
+                            <i class="fa fa-user"></i> {{ article.author.fullName() }}
+                        </span>
+                        <span class="date">
+                            <i class="fa fa-calendar"></i> {{ article.created_at.diffForHumans() }}
+                        <span>
+                    </div>
+
+                    <div class="article__teaser">
                         <p>{{ article.teaser }}</p>
                     </div>
                 </div>
-            {% endfor %}
-        </div>
+            </div>
+        {% endfor %}
     </div>
 {% endblock %}
 
