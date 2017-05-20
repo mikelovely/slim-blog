@@ -1,0 +1,9 @@
+{% extends 'templates/app.twig' %}
+
+{% block content %}
+    {% for article in articles %}
+        <div class="row" style="border:1px solid green">
+            <div class="col-md-8 col-md-offset-2" style="border:1px solid red">{{ article.title }}</div>
+        </div>
+    {% endfor %}
+{% endblock %}
