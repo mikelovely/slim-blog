@@ -24,11 +24,6 @@
 
                 {% for tag in article.tags %}
                     <a class="tag" href="{{ path_for('tags.index', { tagged: tag.slug }) }}">{{ tag.name }}</a>
-                    <a class="tag" href="{{ path_for('tags.index', { tagged: tag.slug }) }}">{{ tag.name }}</a>
-                    <a class="tag" href="{{ path_for('tags.index', { tagged: tag.slug }) }}">{{ tag.name }}</a>
-                    <a class="tag" href="{{ path_for('tags.index', { tagged: tag.slug }) }}">{{ tag.name }}</a>
-                    <a class="tag" href="{{ path_for('tags.index', { tagged: tag.slug }) }}">{{ tag.name }}</a>
-                    <a class="tag" href="{{ path_for('tags.index', { tagged: tag.slug }) }}">{{ tag.name }}</a>
                 {% endfor %}
             </div>
         </div>
